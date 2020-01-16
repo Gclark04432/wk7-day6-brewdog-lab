@@ -2,6 +2,7 @@
   <div>
     <beers-names-select :beersNames="beersNames"></beers-names-select>
     <beer-detail :selectedBeer="selectedBeer"></beer-detail>
+    <favourite-beers :favouriteBeers="favouriteBeers"></favourite-beers>
   </div>
 </template>
 
