@@ -2,12 +2,14 @@
   <div>
     <h1>Beers</h1>
     <beers-names-list :beersNames="beersNames"></beers-names-list>
+    <beer-detail :selectedBeer="selectedBeer"></beer-detail>
   </div>
 </template>
 
 <script>
 import {eventBus} from './main.js';
 import BeersNamesList from './components/BeersNamesList.vue';
+import BeerDetail from './components/BeerDetail.vue';
 
 export default {
   name: 'app',
@@ -31,11 +33,14 @@ export default {
   },
   methods: {
     getBeerByName(beerName) {
-      this.beers.filter(beer => beer.name === beerName)
+      const foundBeer = this.beers.filter(beer => beer.name === beerName)[0]
+      return foundBeer
+
     }
   },
   components: {
-    "beers-names-list": BeersNamesList
+    "beers-names-list": BeersNamesList,
+    "beer-detail": BeerDetail
   }
 }
 </script>
