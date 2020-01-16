@@ -1,13 +1,25 @@
 <template lang="html">
   <ul>
-    <li v-for="beerName in beersNames" :beerName="beerName">{{beerName}}</li>
+    <li v-on:click="handleClick" v-for="beerName in beersNames" v-model="selectedBeerName">{{beerName}}</li>
   </ul>
 </template>
 
 <script>
+import { eventBus } from '../main.js'
+
 export default {
   name: 'beers-names-list',
-  props: ['beersNames']
+  data(){
+    return {
+      "selectedBeerName": []
+    }
+  },
+  props: ['beersNames'],
+  methods: {
+    handleClick(){
+      eventBus.$emit('name-selected', this.selectedBeerName)
+    }
+  }
 }
 </script>
 

@@ -14,7 +14,8 @@ export default {
   data() {
     return {
       beers: [],
-      beersNames: []
+      beersNames: [],
+      selectedBeer: {}
     }
   },
   mounted() {
@@ -22,6 +23,9 @@ export default {
     .then(result => result.json())
     .then(beers  => {
       this.beersNames = beers.map(beer => beer.name)
+    })
+    eventBus.$on('name-selected', (selectedBeerName) => {
+      this.selectedBeer = selectedBeerName
     })
   },
   components: {
