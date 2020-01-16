@@ -9,6 +9,7 @@
 import {eventBus} from './main.js';
 import BeersNamesSelect from './components/BeersNamesSelect.vue';
 import BeerDetail from './components/BeerDetail.vue';
+import FavouriteBeers from './components/FavouriteBeers';
 
 export default {
   name: 'app',
@@ -16,7 +17,8 @@ export default {
     return {
       beers: [],
       beersNames: [],
-      selectedBeer: {}
+      selectedBeer: {},
+      favouriteBeers: []
     }
   },
   mounted() {
@@ -29,6 +31,10 @@ export default {
     eventBus.$on('name-selected', (selectedBeerName) => {
       this.selectedBeer = this.getBeerByName(selectedBeerName)
     })
+
+    eventBus.$on('favourite-added', (selectedBeer) => {
+      this.favouriteBeers.push(selectedBeer)
+    })
   },
   methods: {
     getBeerByName(beerName) {
@@ -39,14 +45,14 @@ export default {
   },
   components: {
     "beers-names-select": BeersNamesSelect,
-    "beer-detail": BeerDetail
+    "beer-detail": BeerDetail,
+    "favourite-beers": FavouriteBeers
   }
 }
 </script>
 
 <style lang="css" scoped>
   div {
-    display: flex;
-    justify-content: space-between;
+
   }
 </style>

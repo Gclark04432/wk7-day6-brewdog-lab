@@ -6,6 +6,8 @@
       <p>Alochold by Volume: {{ selectedBeer.abv }}%</p>
 
       <img :src="selectedBeer.image_url">
+      <br>
+        <button v-on:click="addToFavourites">Add to favourites</button>
     </div>
 
   </div>
@@ -16,7 +18,12 @@ import { eventBus } from '../main.js';
 
 export default {
   name: 'beer-detail',
-  props: ['selectedBeer']
+  props: ['selectedBeer'],
+  methods: {
+    addToFavourites() {
+      eventBus.$emit('favourite-added', this.selectedBeer)
+    }
+  }
 }
 </script>
 
@@ -24,8 +31,7 @@ export default {
   div {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    max-width: 40%;
+    max-width: 600%;
   }
 
   div img {
