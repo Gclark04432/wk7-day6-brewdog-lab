@@ -1,13 +1,13 @@
 <template lang="html">
   <div>
-    <beers-names-list :beersNames="beersNames"></beers-names-list>
+    <beers-names-select :beersNames="beersNames"></beers-names-select>
     <beer-detail :selectedBeer="selectedBeer"></beer-detail>
   </div>
 </template>
 
 <script>
 import {eventBus} from './main.js';
-import BeersNamesList from './components/BeersNamesList.vue';
+import BeersNamesSelect from './components/BeersNamesSelect.vue';
 import BeerDetail from './components/BeerDetail.vue';
 
 export default {
@@ -38,7 +38,7 @@ export default {
     }
   },
   components: {
-    "beers-names-list": BeersNamesList,
+    "beers-names-select": BeersNamesSelect,
     "beer-detail": BeerDetail
   }
 }
