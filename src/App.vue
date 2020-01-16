@@ -23,10 +23,16 @@ export default {
     .then(result => result.json())
     .then(beers  => {
       this.beersNames = beers.map(beer => beer.name)
+      this.beers = beers
     })
     eventBus.$on('name-selected', (selectedBeerName) => {
-      this.selectedBeer = selectedBeerName
+      this.selectedBeer = this.getBeerByName(selectedBeerName)
     })
+  },
+  methods: {
+    getBeerByName(beerName) {
+      this.beers.filter(beer => beer.name === beerName)
+    }
   },
   components: {
     "beers-names-list": BeersNamesList
