@@ -1,9 +1,13 @@
 <template lang="html">
   <div v-if="selectedBeer">
-    <h3>Selected {{ selectedBeer.name }}</h3>
-    <p>{{ selectedBeer.description}}</p>
-    <p>Alochold by Volume: {{ selectedBeer.abv }}%</p>
-    <img :src="selectedBeer.image_url">
+    <div class="">
+      <h3>Selected {{ selectedBeer.name }}</h3>
+      <p>{{ selectedBeer.description}}</p>
+      <p>Alochold by Volume: {{ selectedBeer.abv }}%</p>
+
+      <img :src="selectedBeer.image_url">
+    </div>
+
   </div>
 </template>
 
@@ -17,4 +21,15 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 40%;
+  }
+
+  div img {
+    width: 40px;
+  }
+
 </style>

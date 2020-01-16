@@ -1,6 +1,5 @@
 <template lang="html">
   <div>
-    <h1>Beers</h1>
     <beers-names-list :beersNames="beersNames"></beers-names-list>
     <beer-detail :selectedBeer="selectedBeer"></beer-detail>
   </div>
@@ -46,4 +45,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>
