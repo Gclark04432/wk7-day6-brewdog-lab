@@ -1,7 +1,7 @@
 <template lang="html">
   <div v-if="selectedBeer">
-    <div class="">
-      <h3>Selected {{ selectedBeer.name }}</h3>
+    <div>
+      <h3>{{ selectedBeer.name }}</h3>
       <p>{{ selectedBeer.description}}</p>
       <p>Alochold by Volume: {{ selectedBeer.abv }}%</p>
 
@@ -35,7 +35,11 @@ export default {
   }
 
   div img {
-    width: 40px;
+    width: 35px;
+  }
+
+  h3 {
+    text-decoration: underline darkgreen;
   }
 
 </style>

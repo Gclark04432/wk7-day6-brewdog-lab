@@ -1,9 +1,11 @@
 <template lang="html">
-  <div>
+  <body>
     <beers-names-select :beersNames="beersNames"></beers-names-select>
-    <beer-detail :selectedBeer="selectedBeer"></beer-detail>
-    <favourite-beers :favouriteBeers="favouriteBeers"></favourite-beers>
-  </div>
+    <div>
+      <beer-detail :selectedBeer="selectedBeer"></beer-detail>
+      <favourite-beers :favouriteBeers="favouriteBeers"></favourite-beers>
+    </div>
+  </body>
 </template>
 
 <script>
@@ -18,7 +20,7 @@ export default {
     return {
       beers: [],
       beersNames: [],
-      selectedBeer: {},
+      selectedBeer: null,
       favouriteBeers: []
     }
   },
@@ -53,7 +55,29 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  div {
+body {
+  background-image: url("../public/background.jpg");
+  background-repeat: repeat-x;
+  background-size: cover;
+  height: 700px;
+  background-clip: border-box;
+  color: white;
+}
 
-  }
+div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+  padding: 20px;
+  margin: 20px;
+}
+
+beer-detail {
+  width: 40%;
+}
+
+favourite-beers {
+  width: 40%;
+}
+
 </style>

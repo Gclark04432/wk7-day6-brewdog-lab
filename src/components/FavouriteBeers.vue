@@ -1,7 +1,7 @@
 <template lang="html">
-  <div>
-    Favourite Beers Below
+  <div v-if="!favouriteBeers.length == 0">
     <ul>
+      <h3>Favourite Beers Below</h3>
       <li v-for="beer in favouriteBeers">{{ beer.name }}</li>
     </ul>
   </div>
@@ -15,4 +15,16 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  h3 {
+    text-decoration: underline darkgreen;
+  }
+
+  li {
+    list-style: none;
+    padding:5px;
+    color: green;
+    background-color: white;
+    opacity: 0.7;
+  }
+
 </style>
