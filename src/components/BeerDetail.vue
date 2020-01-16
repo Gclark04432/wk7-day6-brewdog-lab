@@ -1,5 +1,10 @@
 <template lang="html">
-  <p v-if="selectedBeer">Selected {{ selectedBeer.name }}</p>
+  <div v-if="selectedBeer">
+    <h3>Selected {{ selectedBeer.name }}</h3>
+    <p>{{ selectedBeer.description}}</p>
+    <p>Alochold by Volume: {{ selectedBeer.abv }}%</p>
+    <img :src="selectedBeer.image_url">
+  </div>
 </template>
 
 <script>
